@@ -10,9 +10,12 @@ namespace Lab04_TicTacToe
             PlayGame();
 		}
 
+        /// <summary>
+        /// Game logic - the sequence of steps for TicTacToe
+        /// </summary>
 		static void PlayGame()
 		{
-            // TODO: Instantiate your players
+            // DONE: Instantiate your players
             Console.WriteLine("Hello! Let's play TicTacToe");
             Console.Write("Player one's name: ");
             Player player1 = new Player()
