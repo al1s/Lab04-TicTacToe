@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    class Position
+    public class Position
     {
         /// <summary>
         /// Row of the position
