@@ -44,7 +44,7 @@ namespace Lab04_TicTacToe.Classes
             int currentTurn = 1;
             Player currentPlayer = PlayerOne;
             bool haveWinner = false;
-            while(!haveWinner || currentTurn > 9)
+            while(!haveWinner && currentTurn <= 9)
             {
                 Board.DisplayBoard();
                 currentPlayer = PlayerOne.IsTurn ? PlayerOne : PlayerTwo;
@@ -53,7 +53,8 @@ namespace Lab04_TicTacToe.Classes
                 haveWinner = CheckForWinner(Board);
                 SwitchPlayer();
             }
-            return currentPlayer;
+            Board.DisplayBoard();
+            return currentTurn == 10 ? new Player() { Name = "Draw" } : currentPlayer;
 		}
 
 
@@ -89,9 +90,9 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-				// TODO:  Determine a winner has been reached. 
-				// return true if a winner has been reached. 
-			
+                // DONE:  Determine a winner has been reached. 
+                // return true if a winner has been reached. 
+                if (a == b && b == c && a == c) return true;
 			}
 
 			return false;

@@ -28,7 +28,7 @@ namespace Lab04_TicTacToe
             Player player2 = new Player()
             {
                 Name = Console.ReadLine(),
-                Marker = "X",
+                Marker = "O",
                 IsTurn = true
             };
 			// Create the Game
@@ -36,7 +36,9 @@ namespace Lab04_TicTacToe
 			// Play the Game
             Player winner = game.Play();
             // Output the winner
-            Console.WriteLine($"{winner.Name} wins!");
+            if(winner.Name == "Draw") Console.WriteLine("It's a draw!");
+            else Console.WriteLine($"{winner.Name} wins!");
+            Console.ReadLine();
 		}
 	}
 }
