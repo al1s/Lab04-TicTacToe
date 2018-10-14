@@ -1,4 +1,5 @@
 ﻿using System;
+using Lab04_TicTacToe.Classes;
 
 namespace Lab04_TicTacToe
 {
@@ -6,11 +7,13 @@ namespace Lab04_TicTacToe
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+            PlayGame();
 		}
 
 		static void PlayGame()
 		{
+            Board brd = new Board();
+            brd.DisplayBoard();
 			// TODO: Instantiate your players
 			// Create the Game
 			// Play the Game
