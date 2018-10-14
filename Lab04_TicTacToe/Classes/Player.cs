@@ -4,8 +4,11 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    class Player
+    public class Player
     {
+        /// <summary>
+        /// Chosen player's name
+        /// </summary>
 		public string Name { get; set; }
 		/// <summary>
 		/// P1 is X and P2 will be O
@@ -18,6 +21,11 @@ namespace Lab04_TicTacToe.Classes
 		public bool IsTurn { get; set; }
 
 
+        /// <summary>
+        /// Handle user input for a turn
+        /// </summary>
+        /// <param name="board">Current game's board</param>
+        /// <returns>coordinates of the turn in the inner format</returns>
 		public Position GetPosition(Board board)
 		{
 			Position desiredCoordinate = null;
@@ -28,10 +36,13 @@ namespace Lab04_TicTacToe.Classes
 				desiredCoordinate = PositionForNumber(position);
 			}
 			return desiredCoordinate;
-
 		}
 
-
+        /// <summary>
+        /// Utility to map a number on the screen into a Position object  
+        /// </summary>
+        /// <param name="position">Number representing chosen square on the board</param>
+        /// <returns>Position object with coordinates of the on-screen number</returns>
 		public static Position PositionForNumber(int position)
 		{
 			switch (position)
@@ -45,12 +56,15 @@ namespace Lab04_TicTacToe.Classes
 				case 7: return new Position(2, 0); // Bottom Left
 				case 8: return new Position(2, 1); // Bottom Middle 
 				case 9: return new Position(2, 2); // Bottom Right
-
 				default: return null;
 			}
 		}
 
 	
+        /// <summary>
+        /// Set a marker on the on-screen board 
+        /// </summary>
+        /// <param name="board">Board object representing current state of the game</param>
 		public void TakeTurn(Board board)
 		{
 			IsTurn = true;

@@ -4,9 +4,15 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-    class Position
+    public class Position
     {
+        /// <summary>
+        /// Row of the position
+        /// </summary>
 		public int Row { get; set; }
+        /// <summary>
+        /// Column of the position
+        /// </summary>
 		public int Column { get; set; }
 
 		/// <summary>

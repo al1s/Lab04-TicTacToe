@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab04_TicTacToe.Classes
 {
-	class Game
+	public class Game
 	{
 		public Player PlayerOne { get; set; }
 		public Player PlayerTwo { get; set; }
@@ -31,9 +31,9 @@ namespace Lab04_TicTacToe.Classes
 		public Player Play()
 		{
 
-			//TODO: Complete this method and utilize the rest of the class structure to play the game.
+            //DONE: Complete this method and utilize the rest of the class structure to play the game.
 
-			/*
+            /*
 			 While there isn't a winner determined or too many turns have been taken,
 			 allow each player to see the board and take a turn.
 			 A turn consists of picking a position on the board, and then putting their appropriate marker
@@ -41,6 +41,20 @@ namespace Lab04_TicTacToe.Classes
 			 board so the next player can accurately choose. 
 			 Once a winner is determined, display the board and return a winner 
 			 */
+            int currentTurn = 1;
+            Player currentPlayer = PlayerOne;
+            bool haveWinner = false;
+            while(!haveWinner && currentTurn <= 9)
+            {
+                Board.DisplayBoard();
+                currentPlayer = PlayerOne.IsTurn ? PlayerOne : PlayerTwo;
+                currentPlayer.TakeTurn(Board);
+                currentTurn += 1;
+                haveWinner = CheckForWinner(Board);
+                SwitchPlayer();
+            }
+            Board.DisplayBoard();
+            return currentTurn == 10 ? new Player() { Name = "Draw" } : currentPlayer;
 		}
 
 
@@ -76,9 +90,9 @@ namespace Lab04_TicTacToe.Classes
 				string b = Board.GameBoard[p2.Row, p2.Column];
 				string c = Board.GameBoard[p3.Row, p3.Column];
 
-				// TODO:  Determine a winner has been reached. 
-				// return true if a winner has been reached. 
-			
+                // DONE:  Determine a winner has been reached. 
+                // return true if a winner has been reached. 
+                if (a == b && b == c && a == c) return true;
 			}
 
 			return false;
