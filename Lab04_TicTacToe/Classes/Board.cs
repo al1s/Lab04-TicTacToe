@@ -21,7 +21,7 @@ namespace Lab04_TicTacToe.Classes
         /// </summary>
 		public void DisplayBoard()
         {
-			//DONE: Output the board to the console
+            //DONE: Output the board to the console
             for (int i = 0; i < GameBoard.GetLength(0); i++)
             {
                 Console.WriteLine($"|{GameBoard[i, 0]}||{GameBoard[i, 1]}||{GameBoard[i, 2]}|");

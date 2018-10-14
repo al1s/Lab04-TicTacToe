@@ -12,12 +12,28 @@ namespace Lab04_TicTacToe
 
 		static void PlayGame()
 		{
-            Board brd = new Board();
-            brd.DisplayBoard();
-			// TODO: Instantiate your players
+            // TODO: Instantiate your players
+            Console.WriteLine("Hello! Let's play TicTacToe");
+            Console.Write("Player one's name: ");
+            Player player1 = new Player()
+            {
+                Name = Console.ReadLine(),
+                Marker = "X",
+                IsTurn = true
+            };
+            Console.Write("Player two's name: ");
+            Player player2 = new Player()
+            {
+                Name = Console.ReadLine(),
+                Marker = "X",
+                IsTurn = true
+            };
 			// Create the Game
+            Game game = new Game(player1, player2);
 			// Play the Game
-			// Output the winner
+            Player winner = game.Play();
+            // Output the winner
+            Console.WriteLine($"{winner.Name} wins!");
 		}
 	}
 }
