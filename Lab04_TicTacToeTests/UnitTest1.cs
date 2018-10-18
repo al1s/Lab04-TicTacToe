@@ -7,6 +7,9 @@ namespace Lab04_TicTacToeTests
 {
     public class UnitTest1
     {
+        /// <summary>
+        /// Test whether the winner exists for a starting position
+        /// </summary>
         [Fact]
         public void WinnerNotExistsForBlankBoard()
         {
@@ -15,6 +18,9 @@ namespace Lab04_TicTacToeTests
             game.Board.GameBoard = board;
             Assert.False(game.CheckForWinner(game.Board));
         }
+        /// <summary>
+        /// Test whether can get the winner for X in diagonal
+        /// </summary>
         [Fact]
         public void WinnerXForDiagonal()
         {
@@ -23,6 +29,9 @@ namespace Lab04_TicTacToeTests
             game.Board.GameBoard = board;
             Assert.True(game.CheckForWinner(game.Board));
         }
+        /// <summary>
+        /// Test whether the winner doesn't exist for draw position
+        /// </summary>
         [Fact]
         public void WinnerNotExistsForDraw()
         {
@@ -31,6 +40,9 @@ namespace Lab04_TicTacToeTests
             game.Board.GameBoard = board;
             Assert.False(game.CheckForWinner(game.Board));
         }
+        /// <summary>
+        /// Test whether the current player can be switched
+        /// </summary>
         [Fact]
         public void CanSwitchToPlayerTwo()
         {
@@ -41,6 +53,9 @@ namespace Lab04_TicTacToeTests
             Assert.False(player1.IsTurn);
             Assert.True(player2.IsTurn);
         }
+        /// <summary>
+        /// Test whether the current player exists after switching
+        /// </summary>
         [Fact]
         public void CanReturnCurrentPlayer()
         {
@@ -49,6 +64,12 @@ namespace Lab04_TicTacToeTests
             Game game = new Game(player1, player2);
             Assert.Equal(player1.Name, game.NextPlayer().Name);
         }
+        /// <summary>
+        /// Test whether the user input correctly converted into inner game representation coordinates
+        /// </summary>
+        /// <param name="onscreenValue">Coordinate of the game field from the user point of view</param>
+        /// <param name="expectedRow">Y coordinate of the game field in inner representation</param>
+        /// <param name="expectedColumn">X coordinate of the game field in inner representation</param>
         [Theory]
         [InlineData(1, 0, 0)] 
         [InlineData(5, 1, 1)] 
